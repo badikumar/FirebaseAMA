@@ -1,9 +1,14 @@
-﻿<div class="container">
+<div class="container">
     <div class="row">
 
         <div class="col-md-offset-2 col-md-8">
             <div class="bs-component">
                 <div class="list-group">
+                    <br />
+                    <div class="title">
+                        <h4>Rapidly fire up apps with Firebase</h4>
+                    </div>
+                    
                     <!-- SEARCH TOOL -->
                     <div class="form-group">
                         <div class="input-group">
@@ -19,10 +24,10 @@
                     <div class="title" ng-hide="signedIn()">
                         <button class="facebook-oauth-button btn btn-raised" ng-click="login()">
                             <i class="icon"></i>
-                            <span>Log in with Facebook</span>
+                            <span>Log in to ask questions</span>
                         </button>
                     </div>
-                    <br />
+                    <br/>
                     <!-- QUESTION LIST -->
 
                     <div ng-repeat="question in questions | filter: searchQuestion">
