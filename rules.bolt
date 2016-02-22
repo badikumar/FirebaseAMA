@@ -1,0 +1,24 @@
+type Question{
+	validate() { this.text.length >0; }
+	text: String
+}
+type User{
+	image: String
+	name: String
+	provider: String
+}
+path /questions {
+	read() { true; }
+}
+
+path /questions/{id} is Question{
+	write() { true; }
+}
+
+path /users {
+	read() {true;}
+}
+
+path /users/{id} is User{
+	write() {true;}
+}

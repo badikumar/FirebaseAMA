@@ -1,0 +1,36 @@
+{
+  "rules": {
+    "questions": {
+      ".read": "true",
+      "$id": {
+        ".validate": "newData.hasChildren(['text']) && newData.child('text').val().length > 0",
+        "text": {
+          ".validate": "newData.isString()"
+        },
+        "$other": {
+          ".validate": "false"
+        },
+        ".write": "true"
+      }
+    },
+    "users": {
+      ".read": "true",
+      "$id": {
+        ".validate": "newData.hasChildren(['image', 'name', 'provider'])",
+        "image": {
+          ".validate": "newData.isString()"
+        },
+        "name": {
+          ".validate": "newData.isString()"
+        },
+        "provider": {
+          ".validate": "newData.isString()"
+        },
+        "$other": {
+          ".validate": "false"
+        },
+        ".write": "true"
+      }
+    }
+  }
+}

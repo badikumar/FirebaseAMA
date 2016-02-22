@@ -1,0 +1,21 @@
+﻿<div class="modal fade" id="postModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Ask a question</h4>
+            </div>
+            <form>
+                <div class="modal-body">
+
+                    <textarea ng-model="question.text" class="form-control" placeholder="What's your question?" rows="8" required ng-required="string"></textarea><br>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" ng-click="postQuestion(question)" data-dismiss="modal">Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

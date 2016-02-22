@@ -1,0 +1,57 @@
+﻿<div class="container">
+    <div class="row">
+
+        <div class="col-md-offset-2 col-md-8">
+            <div class="bs-component">
+                <div class="list-group">
+                    <!-- SEARCH TOOL -->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </div>
+                            <input type="text" ng-model="searchQuestion" class="form-control" placeholder="Search">
+                        </div>
+                    </div>
+                    <div class="title" ng-show="signedIn()">
+                        <a href="" data-toggle="modal" data-target="#postModal" class="btn btn-raised btn-warning">Post a Question</a>
+                    </div>
+                    <div class="title" ng-hide="signedIn()">
+                        <button class="facebook-oauth-button btn btn-raised" ng-click="login()">
+                            <i class="icon"></i>
+                            <span>Log in with Facebook</span>
+                        </button>
+                    </div>
+                    <br />
+                    <!-- QUESTION LIST -->
+
+                    <div ng-repeat="question in questions | filter: searchQuestion">
+                        <div class="list-group-item">
+                            <div class="row-action-primary">
+
+                            </div>
+                            <div class="row-content">
+                                <div ng-show="question.class" class="star least-content fa {{question.class}}" ng-click="upvote(this.question)"></div>
+                                <div ng-hide="question.class" class="star least-content fa fa-star-o" ng-click="upvote(this.question)"></div>
+                                <div style="position: absolute; right: 0;top:20px">{{question.starcount}} stars</div>
+                                
+
+                                <a href="" data-toggle="modal" data-target="#viewModal" ng-click="setSelectedQuestion(this.question)">
+                                    <p class="list-group-item-text">{{question.text | limitTo:25}}{{ question.text.length > 25? "..." : ""}}</p>
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="list-group-separator"></div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-include="'views/partials/post.html'"></div>
+<div ng-include="'views/partials/view.html'"></div>
