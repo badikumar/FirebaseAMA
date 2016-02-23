@@ -13,9 +13,6 @@ var app = angular
       .when('/', {
         templateUrl: 'views/browse.html',
         controller: 'QuestionController'
-//        resolve: {
-//            "currentAuth" : ["Auth", function (Auth) { return Auth.$waitForAuth(); }]
-//        }
       })
       .otherwise({
         redirectTo: '/'
