@@ -18,9 +18,11 @@
                             <input type="text" ng-model="searchQuestion" class="form-control" placeholder="Search">
                         </div>
                     </div>
+<!--
                     <div class="title" ng-show="signedIn()">
-                        <a href="" data-toggle="modal" data-target="#postModal" class="btn btn-raised btn-warning">Post a Question</a>
+                        <a href="" data-toggle="modal" data-target="#postModal" class="btn btn-raised btn-danger">Post a Question</a>
                     </div>
+-->
                     <div class="title" ng-hide="signedIn()">
                         <button class="facebook-oauth-button btn btn-raised" ng-click="login()">
                             <i class="icon"></i>
@@ -49,13 +51,10 @@
                         </div>
                         <div class="list-group-separator"></div>
                     </div>
-                    <div class="quickaction" ng-mouseenter="option=true" ng-mouseleave="option=false" ng-show="signedIn()">
-                        <label ng-show="option" class="quickactionlabel">
-                            <div class="tv">Post a Question</div>
-                        </label>
+                    <div class="quickaction" ng-show="signedIn()">
+                        
                         <a href="" data-toggle="modal" data-target="#postModal" class="btn btn-danger btn-fab">
-                            <i ng-hide="option" class="material-icons">add</i>
-                            <i ng-show="option" class="material-icons">edit</i>
+                            <i id="addicon"  class="material-icons">add</i>
                         </a>
                         
                     </div>
