@@ -1,6 +1,7 @@
 {
   "firebase": "devconfama",
   "public": ".",
+  "rules": "rules.json",
   "ignore": [
     "firebase.json",
     "**/.*",

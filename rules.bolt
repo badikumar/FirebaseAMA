@@ -1,24 +1,30 @@
+isLoggedInUser() { auth != null }
+
 type Question{
-	validate() { this.text.length >0; }
+	validate() { this.text.length >0 }
 	text: String
+    datetime: Number
+    starcount: Number
 }
 type User{
 	image: String
 	name: String
 	provider: String
+    votes: Object | Null
 }
 path /questions {
-	read() { true; }
+	read() { true }
 }
 
 path /questions/{id} is Question{
-	write() { true; }
+	write() { isLoggedInUser() }
 }
 
 path /users {
-	read() {true;}
+	read() { true }
 }
 
 path /users/{id} is User{
-	write() {true;}
+    read() { isLoggedInUser() && auth.uid==id }
+	write() { isLoggedInUser() && auth.uid==id }
 }

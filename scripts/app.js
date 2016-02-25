@@ -11,8 +11,8 @@ var app = angular
   .directive('onScrollOver', function($window){
       var $win = angular.element($window);
       return {
-        restrict: 'A',   // 'A' is the default, so you could remove this line
-        scope: {flag:"="},
+        restrict: 'A',   // 'A' is the default; could remove this line
+        scope: { flag:"=" },
         link: function (scope, element) {
             var offsetTop = element.offset().top;
             $win.on('scroll', function (e) {

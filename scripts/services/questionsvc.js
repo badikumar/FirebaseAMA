@@ -1,10 +1,9 @@
-﻿'use strict';
+'use strict';
 
 app.factory('questionsvc', function (FURL, authsvc, $firebaseArray, $firebaseObject) {
 
     var questionsRef = new Firebase(FURL + '/questions');
     var usersRef = new Firebase(FURL + '/users');
-
     var questions = $firebaseArray(questionsRef);
 
     var Question = {

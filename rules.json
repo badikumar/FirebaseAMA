@@ -3,14 +3,20 @@
     "questions": {
       ".read": "true",
       "$id": {
-        ".validate": "newData.hasChildren(['text']) && newData.child('text').val().length > 0",
+        ".validate": "newData.hasChildren(['text', 'datetime', 'starcount']) && newData.child('text').val().length > 0",
         "text": {
           ".validate": "newData.isString()"
+        },
+        "datetime": {
+          ".validate": "newData.isNumber()"
+        },
+        "starcount": {
+          ".validate": "newData.isNumber()"
         },
         "$other": {
           ".validate": "false"
         },
-        ".write": "true"
+        ".write": "auth != null"
       }
     },
     "users": {
@@ -26,10 +32,14 @@
         "provider": {
           ".validate": "newData.isString()"
         },
+        "votes": {
+          ".validate": "newData.hasChildren() || newData.val() == null"
+        },
         "$other": {
           ".validate": "false"
         },
-        ".write": "true"
+        ".read": "auth != null && auth.uid == $id",
+        ".write": "auth != null && auth.uid == $id"
       }
     }
   }

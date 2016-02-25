@@ -8,6 +8,7 @@ app.controller('QuestionController', function ($scope, authsvc, questionsvc) {
 
     function initialize() {
         $scope.questions.$loaded().then(function (questions) {
+            $scope.questions.sort(compare);
             questionsvc.initialize(questions);
         });
     }
@@ -57,7 +58,7 @@ app.controller('QuestionController', function ($scope, authsvc, questionsvc) {
 
     // custom sorting routine (sort by star count)
     function compare(a, b) {
-        return a.starcount < b.starcount;
+        return  b.starcount - a.starcount ;
     }
     
     $scope.showaddbutton = false; 
