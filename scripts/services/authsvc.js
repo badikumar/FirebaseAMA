@@ -24,13 +24,17 @@ app.factory("authsvc", function (FURL, $firebaseAuth, $firebaseObject) {
     auth.$onAuth(function (authData) {
         if (authData) {
             angular.copy(authData, Auth.user);
-            var userProfile = $firebaseObject(ref.child('users').child(authData.uid));
-            if (userProfile == null) {
-                userProfile = getUserProfile(authData);
-                ref.child("users").child(authData.uid).set(userProfile);
-            }
-            Auth.user.profile = $firebaseObject(ref.child('users').child(authData.uid));;
             
+            var userProfile = ref.child('users').child(authData.uid);
+            
+            userProfile.once("value", function(snapshot){
+                if(!snapshot.exists()){
+                    userProfile = getUserProfile(authData);
+                    ref.child("users").child(authData.uid).set(userProfile);
+                }
+                Auth.user.profile = $firebaseObject(ref.child('users').child(authData.uid));
+            });
+     
         } else {
             if (Auth.user && Auth.user.profile) {
                 Auth.user.profile.$destroy();
