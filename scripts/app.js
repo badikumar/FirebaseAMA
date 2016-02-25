@@ -12,14 +12,14 @@ var app = angular
       var $win = angular.element($window);
       return {
         restrict: 'A',   // 'A' is the default, so you could remove this line
-        scope: false,
+        scope: {flag:"="},
         link: function (scope, element) {
             var offsetTop = element.offset().top;
             $win.on('scroll', function (e) {
                 if ($win.scrollTop() >= offsetTop) {
-                    scope.showaddbutton = true;
+                    scope.flag = true;
                 }else{
-                    scope.showaddbutton = false;
+                    scope.flag = false;
                 }
                 scope.$apply();
             });
