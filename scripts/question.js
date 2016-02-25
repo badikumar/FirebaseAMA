@@ -58,7 +58,11 @@ app.controller('QuestionController', function ($scope, authsvc, questionsvc) {
 
     // custom sorting routine (sort by star count)
     function compare(a, b) {
-        return  b.starcount - a.starcount ;
+        var ret =  b.starcount - a.starcount ;
+        if(ret == 0){
+            ret = a.datetime - b.datetime;
+        }
+        return ret;
     }
     
     $scope.showaddbutton = false; 
