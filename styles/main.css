@@ -71,27 +71,6 @@ a, a:hover, a:focus {
     z-index: 21;
 }
 
-.quickactionlabel{
-    display: inline-block;
-    margin-right: 8px;
-    text-align: right;
-    -webkit-transition: opacity 150ms cubic-bezier(.4,0,1,1);
-    transition: opacity 150ms cubic-bezier(.4,0,1,1);
-}
-.quickactionlabel>.pq {
-  background: rgba(70,70,70,.9);
-  border-radius: 2px;
-  box-shadow: 0 1px 2px rgba(0,0,0,.15);
-  color: #ececec;
-  display: inline-block;
-  font-weight: bold;
-  line-height: 1em;
-  max-width: 200px;
-  overflow: hidden;
-  padding: 6px 8px;
-  text-overflow: ellipsis;
-  vertical-align: middle;
-}
 
 .btn-danger{
     background-color: #f44336 !important;

@@ -59,5 +59,7 @@ app.controller('QuestionController', function ($scope, authsvc, questionsvc) {
     function compare(a, b) {
         return a.starcount < b.starcount;
     }
+    
+    $scope.showaddbutton = false; 
 
 });
