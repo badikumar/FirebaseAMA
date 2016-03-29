@@ -1,6 +1,6 @@
-﻿'use strict';
+'use strict';
 
-app.controller('NavController', function (authsvc, FURL, $firebaseAuth, $scope) {
+app.controller('NavController', function (authsvc, $scope) {
 
     $scope.signedIn = authsvc.signedIn;
 

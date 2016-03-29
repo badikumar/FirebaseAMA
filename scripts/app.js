@@ -26,13 +26,26 @@ var app = angular
         }
     };
   })
-  .config(function ($routeProvider) {
+  .config(function (FURL,$routeProvider, $firebaseRefProvider) {
+
+    $firebaseRefProvider.registerUrl({
+      default:FURL,
+      users: FURL + '/users',
+      questions: FURL + '/questions'
+    });
+
     $routeProvider      
       .when('/', {
         templateUrl: 'views/browse.html',
-        controller: 'QuestionController'
+        controller: 'QuestionController',
+        resolve: {
+            authServe: function($firebaseAuthService){
+              return $firebaseAuthService.$waitForAuth();
+            }
+        }
       })
       .otherwise({
         redirectTo: '/'
       });
+
   });

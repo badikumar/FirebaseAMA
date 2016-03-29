@@ -1,14 +1,15 @@
 'use strict';
 
-app.factory("authsvc", function (FURL, $firebaseAuth, $firebaseObject) {
-    var ref = new Firebase(FURL);
+app.factory("authsvc", function ($firebaseRef, $firebaseAuth, $firebaseObject) {
+    var ref = $firebaseRef.default;
     var auth = $firebaseAuth(ref);
+    //var auth = authServe;
 
     var Auth = {
         auth:auth,
         user: {},
         login: function () {
-            return auth.$authWithOAuthPopup("facebook")
+            return auth.$authWithOAuthPopup("facebook");
         },
         logout: function () {
             auth.$unauth();

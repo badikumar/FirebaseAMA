@@ -1,9 +1,9 @@
 'use strict';
 
-app.factory('questionsvc', function (FURL, authsvc, $firebaseArray, $firebaseObject) {
+app.factory('questionsvc', function ($firebaseRef, authsvc, $firebaseArray, $firebaseObject) {
 
-    var questionsRef = new Firebase(FURL + '/questions');
-    var usersRef = new Firebase(FURL + '/users');
+    var questionsRef = $firebaseRef.questions;
+    var usersRef = $firebaseRef.users;
     var questions = $firebaseArray(questionsRef);
 
     var Question = {
